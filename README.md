@@ -1,2 +1,2 @@
-# copy-jira-comment-code.user.js
+# UserScript
 Add a copy button for Jira comment code block
