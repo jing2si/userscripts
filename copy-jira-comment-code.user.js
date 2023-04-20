@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Add a copy button for Jira comment code block
-// @version      0.1
+// @version      0.2
 // @description  Add a copy button for Jira comment code block
 // @author       Luka
 // @match        https://*.atlassian.net/*
@@ -11,16 +11,25 @@
 ;(function () {
   'use strict'
 
-  GM_addStyle(`
+  GM_addStyle(`  .GM-copy-wrap {
+    max-height: 500px;
+    overflow-y: auto;
+    max-width: 90% !important;
+  }
+
 	.GM-copy-wrap:hover .GM-copy-button {
 		transition: opacity 0.3s ease-in-out;
 		opacity: 1;
 	}
 
 	.GM-copy-button {
-    position: absolute;
-    right: 0;
-    top: 0;
+    position: sticky;
+    left: 100%;
+    top: 15px;
+    width: fit-content;
+    height: fit-content;
+    margin-bottom: -100%;
+    margin-right: 20px;
     display: inline-block;
     padding: 5px 10px;
     background-color: #0052CC;
@@ -76,7 +85,8 @@
     })
 
     wrap.classList.add('GM-copy-wrap')
-    wrap.appendChild(copyButton)
+    const firstItem = wrap.firstChild
+    wrap.insertBefore(copyButton, firstItem)
   }
 
   function init() {
