@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Add a copy button for Jira comment code block
-// @version      0.2
+// @version      0.3
 // @description  Add a copy button for Jira comment code block
 // @author       Luka
 // @match        https://*.atlassian.net/*
@@ -25,7 +25,7 @@
 	.GM-copy-button {
     position: sticky;
     left: 100%;
-    top: 15px;
+    top: 8px;
     width: fit-content;
     height: fit-content;
     margin-bottom: -100%;
